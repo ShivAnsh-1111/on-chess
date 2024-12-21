@@ -1,3 +1,12 @@
+package com.onchess.controller;
+
+import com.onchess.dto.LoginRequest;
+import com.onchess.entity.User;
+import com.onchess.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -7,7 +16,7 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody User user) {
-        User newUser = userService.register(user);
+        User newUser = userService.register(user.toUserDto());
         return ResponseEntity.ok(newUser);
     }
 

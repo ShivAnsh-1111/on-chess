@@ -1,5 +1,14 @@
 package com.onchess.entity;
 
+import com.onchess.dto.UserDto;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Builder;
+
+@Builder
+@Entity
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -8,4 +17,8 @@ public class User {
     private String password;
     private String email;
     // getters and setters
+
+    public UserDto toUserDto(){
+        return new UserDto(this.id, this.username, this.password, this.email);
+    }
 }

@@ -1,6 +1,6 @@
-package com.onchess.service;
+package com.onchess.dto;
 
-@Service
+
 public class NotificationRequest {
     private String message;
     private Long userId;
