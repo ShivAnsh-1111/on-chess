@@ -57,11 +57,64 @@ public class GameService {
     }
 
     private String applyMove(String boardState, String move) {
-        // Add logic to validate and update the board state with the new move
-        return boardState; // Replace with actual updated state
+        // Parse the board state into a structure (e.g., 2D array or object representation)
+        String[][] board = parseBoardState(boardState);
+
+        // Extract move details (e.g., source and destination coordinates)
+        String[] moveDetails = move.split("-");
+        String source = moveDetails[0];
+        String destination = moveDetails[1];
+
+        // Validate move legality based on the chess rules (e.g., piece movement, no obstruction)
+        if (!isValidMove(board, source, destination)) {
+            throw new RuntimeException("Invalid move");
+        }
+
+        // Update board state with the new move
+        updateBoardState(board, source, destination);
+
+        // Serialize the updated board back to a string representation
+        return serializeBoardState(board);
     }
 
     private boolean isGameOver(String boardState) {
-        // Add logic to check for checkmate, stalemate, etc.
-        return false; // Replace with actual game over condition
-    }}
+        // Parse the board state into a structure (e.g., 2D array or object representation)
+        String[][] board = parseBoardState(boardState);
+
+        // Check for checkmate, stalemate, or insufficient material
+        boolean isCheckmate = checkForCheckmate(board);
+        boolean isStalemate = checkForStalemate(board);
+
+        return isCheckmate || isStalemate;
+    }
+
+    private String[][] parseBoardState(String boardState) {
+        // Implement parsing logic
+        return new String[8][8]; // Placeholder
+    }
+
+    private String serializeBoardState(String[][] board) {
+        // Implement serialization logic
+        return ""; // Placeholder
+    }
+
+    private boolean isValidMove(String[][] board, String source, String destination) {
+        // Implement move validation logic based on chess rules
+        return true; // Placeholder
+    }
+
+    private void updateBoardState(String[][] board, String source, String destination) {
+        // Implement logic to update the board state
+    }
+
+    private boolean checkForCheckmate(String[][] board) {
+        // Implement checkmate detection logic
+        return false; // Placeholder
+    }
+
+    private boolean checkForStalemate(String[][] board) {
+        // Implement stalemate detection logic
+        return false; // Placeholder
+    }
+
+}

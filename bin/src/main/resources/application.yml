@@ -6,23 +6,13 @@
       compatibility-verifier:
         enabled: false
     datasource:
-      url: jdbc:h2:~/chessdb
+      url: jdbc:h2:file:/data/chessdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE;MODE=PostgreSQL
       driverClassName: org.h2.Driver
       username: sa
       password: password
-      
-    sql:
-      init:
-        mode: always
-        data-locations:
-        - classpath:/data.sql
-        - classpath:/schema.sql
     jpa:
       database-platform: org.hibernate.dialect.H2Dialect
       defer-datasource-initialization: true
-      hibernate:
-        ddl-auto: update
-      show-sql: true
     h2:
       console:
         enabled: true
@@ -32,7 +22,7 @@
           web-allow-others: false
 
   server:
-    port: 8080
+    port: 8761
 
   eureka:
     client:

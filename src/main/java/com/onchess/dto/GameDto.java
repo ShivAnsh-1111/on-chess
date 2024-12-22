@@ -16,11 +16,13 @@ public class GameDto {
     private String status;
 
     public Game toGame(){
-        return Game.builder()
-                .id(this.id)
-                .status(this.status)
-                .playerTurn(this.playerTurn)
-                .boardState(this.boardState)
-                .build();
+//        return Game.builder()
+//                .id(this.id)
+//                .status(this.status)
+//                .playerTurn(this.playerTurn)
+//                .boardState(this.boardState)
+//                .build();
+    	
+    	return new Game();
     }
 }

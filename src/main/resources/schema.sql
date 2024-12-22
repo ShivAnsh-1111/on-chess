@@ -1,0 +1,1 @@
+CREATE TABLE `User' (`email`  VARCHAR(50), `id` INTEGER  PRIMARY KEY AUTO_INCREMENT, `password` VARCHAR(50),`username` VARCHAR(50))
