@@ -1,1 +1,3 @@
-CREATE TABLE `User' (`email`  VARCHAR(50), `id` INTEGER  PRIMARY KEY AUTO_INCREMENT, `password` VARCHAR(50),`username` VARCHAR(50))
+drop table if exists `user`;
+
+create table `user` ( id integer not null, username varchar(255) not null, password varchar(255) not null, email varchar(255) not null, primary key(id) );
